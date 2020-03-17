@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Tue, 17 Mar 2020 17:21:35 +0806</lastBuildDate><pubDate>Tue, 17 Mar 2020 17:21:35 +0806</pubDate><item><title>解决yum报错</title><link>/archives/fixrpmdb/</link><description>&lt;p&gt;这是我一台Google的服务器，很久不用，准备装软件突然就这样了。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Tue, 17 Mar 2020 17:25:59 +0806</lastBuildDate><pubDate>Tue, 17 Mar 2020 17:25:59 +0806</pubDate><item><title>解决yum报错</title><link>/archives/fixrpmdb/</link><description>&lt;p&gt;这是我一台Google的服务器，很久不用，准备装软件突然就这样了。
 &lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/11/1.PNG?imageMogr2/format/webp/interlace/1/quality/100" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;不过只需要重构rpm数据库就可以了&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -565,7 +565,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
     remote = origin
     merge = refs/heads/master&lt;/code&gt;&lt;/pre&gt;
 </description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/sgclone/</guid><pubDate>Sun, 15 Mar 2020 12:50:00 +0806</pubDate></item><item><title>Github+jsDelivr全球静态文件加速</title><link>/archives/spasses/</link><description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;GitHub作为全球最大的代码托管平台，众所周知，GitHub又有GitHub Pages这个功能，使得很多静态网站都托管在GitHub上，国内访问速度一直上不去。但是jsDelivr这家CDN支持加速npm，GitHub和WordPress，jsDelivr在国内的节点都是网速的CDN节点，速度是飞快的。&lt;/p&gt;
+&lt;p&gt;GitHub作为全球最大的代码托管平台，众所周知，GitHub又有GitHub Pages这个功能，使得很多静态网站都托管在GitHub上，国内访问速度一直上不去。但是jsDelivr这家CDN支持加速npm，GitHub和WordPress，jsDelivr在国外是CloudFlare节点，国内都是网速的CDN节点，速度还是飞快的，真正的全球高速。&lt;/p&gt;
 &lt;h1&gt;注意&lt;/h1&gt;
 &lt;p&gt;建议只用作静态文件加速，例如 &lt;code&gt;JS/CSS/Image&lt;/code&gt; 。并不适合大文件分发，大文件分发还是移步国内各厂的对象存储。&lt;/p&gt;
 &lt;h1&gt;实现&lt;/h1&gt;
