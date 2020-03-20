@@ -39,7 +39,6 @@
 	s.parentNode.insertBefore(hm, s);
 	})();
 </script>
-
     <script>
         (function() {
             var bp = document.createElement('script');
@@ -52,19 +51,6 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(bp, s);
         })();
-    </script>
-    <script>
-        fetch('https://v1.hitokoto.cn')
-            .then(function(res) {
-                return res.json();
-            })
-            .then(function(data) {
-                var hitokoto = document.getElementById('hitokoto');
-                hitokoto.innerText = data.hitokoto;
-            })
-            .catch(function(err) {
-                console.error(err);
-            })
     </script>
     <script>
         var ExSearchConfig = {
@@ -287,11 +273,6 @@ error: failed to push some refs to <span class="s1">&#39;git@github.com:jcjyxjs/
                             <ul><li><a class="no-style" title="Twitter" href="https://twitter.com/jcjyxjs" target="_blank"><i class="gi gi-twitter"></i>Twitter</a></li><span class="separator">·</span><li><a class="no-style" title="GitHub" href="https://github.com/JCJYXJS" target="_blank"><i class="gi gi-github"></i>GitHub</a></li><span class="separator">·</span><li><a class="no-style" title="Weibo" href="https://weibo.com/JCJYXJS/" target="_blank"><i class="gi gi-weibo"></i>Weibo</a></li></ul>
                         </nav>
                     </div>
-                    <p>
-                        <span><a href="https://996.icu"><img src="https://cdn.elstec.cn/svg/red.svg" /></a></span>
-                        <span><a href="https://github.com/996icu/996.ICU/blob/master/LICENSE"><img
-                                    src="https://cdn.elstec.cn/svg/blue.svg" /></a></span>
-                    </p>
                 </section>
                 <script>
                     var site_build_date = "2019-08-13T12:00+00:00"
