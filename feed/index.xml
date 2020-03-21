@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sat, 21 Mar 2020 10:41:55 +0806</lastBuildDate><pubDate>Sat, 21 Mar 2020 10:41:55 +0806</pubDate><item><title>使用hexo搭建静态博客+Github Pages</title><link>/archives/hexoblog/</link><description>&lt;h1&gt;使用hexo搭建静态博客步骤&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sat, 21 Mar 2020 16:05:45 +0806</lastBuildDate><pubDate>Sat, 21 Mar 2020 16:05:45 +0806</pubDate><item><title>使用hexo搭建静态博客+Github Pages</title><link>/archives/hexoblog/</link><description>&lt;h1&gt;使用hexo搭建静态博客步骤&lt;/h1&gt;
 &lt;p&gt;1.安装Git&lt;/p&gt;
 &lt;p&gt;2.安装Node.js&lt;/p&gt;
 &lt;p&gt;3.安装hexo&lt;/p&gt;
@@ -665,7 +665,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;p&gt;首先，你需要编辑固件的 &lt;code&gt;IP地址&lt;/code&gt; 建议你改一下，不改的话也没事。打开并编辑下面这个文件。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Actions-OpenWrt/diy.sh&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在第10行中，有一个 &lt;code&gt;192.168.1.200&lt;/code&gt; 就是编译好的固件地址。你可以按需更改。&lt;/p&gt;
+&lt;p&gt;最后一行中，有一个 &lt;code&gt;192.168.1.200&lt;/code&gt; 就是编译好固件的后台地址。你可以按需更改。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;#!/bin/bash
 #=================================================
@@ -675,7 +675,6 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 # Blog: https://p3terx.com
 #=================================================
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 sed -i 's/192.168.1.1/192.168.1.200/g' package/base-files/files/bin/config_generate&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;改完IP地址之后。点击下方的 &lt;code&gt;Commit changes&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/21/12.png?imageMogr2/format/webp/interlace/1/quality/100" /&gt;&lt;/figure&gt;&lt;/p&gt;

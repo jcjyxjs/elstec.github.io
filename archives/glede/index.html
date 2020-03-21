@@ -56,7 +56,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "/2f54a1f4c3bd6e0e4454b0ccbd76647a.json"
+            api: "/52373b6f3a712453ae479eee5d408c5c.json"
         }
     </script>
     
@@ -164,7 +164,7 @@
 <p>首先，你需要编辑固件的 <code>IP地址</code> 建议你改一下，不改的话也没事。打开并编辑下面这个文件。</p>
 
 <pre><code>Actions-OpenWrt/diy.sh</code></pre>
-<p>在第10行中，有一个 <code>192.168.1.200</code> 就是编译好的固件地址。你可以按需更改。</p>
+<p>最后一行中，有一个 <code>192.168.1.200</code> 就是编译好固件的后台地址。你可以按需更改。</p>
 
 <pre><code>#!/bin/bash
 #=================================================
@@ -174,7 +174,6 @@
 # Blog: https://p3terx.com
 #=================================================
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 sed -i 's/192.168.1.1/192.168.1.200/g' package/base-files/files/bin/config_generate</code></pre>
 <p>改完IP地址之后。点击下方的 <code>Commit changes</code> 。</p>
 <p><figure  size-undefined><img width="-1" height="-1" src="https://cdn.elstec.cn/21/12.png?imageMogr2/format/webp/interlace/1/quality/100" /></figure></p>
