@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Wed, 25 Mar 2020 13:10:42 +0806</lastBuildDate><pubDate>Wed, 25 Mar 2020 13:10:42 +0806</pubDate><item><title>使用LiteSpeed为网站启用HTTP/3</title><link>/archives/enhttp3/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Wed, 25 Mar 2020 13:28:58 +0806</lastBuildDate><pubDate>Wed, 25 Mar 2020 13:28:58 +0806</pubDate><item><title>使用LiteSpeed为网站启用HTTP/3</title><link>/archives/enhttp3/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;关于HTTP/3我就不介绍了，网上有，多说无益。真的。
 就目前浏览器支持情况真的也就一般。&lt;/p&gt;
 &lt;p&gt;&lt;figure style="flex: 149.80940279542565" &gt;&lt;img width="2358" height="787" src="https://cdn.elstec.cn/13/0.png" /&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -621,12 +621,18 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;p&gt;打开群晖管理页面，并打开 &lt;code&gt;VMM&lt;/code&gt; → &lt;code&gt;映像&lt;/code&gt; → &lt;code&gt;新增&lt;/code&gt; ，上传刚刚解压好的镜像。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/3.png?imageMogr2/format/webp/interlace/1/quality/100" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;再点击 &lt;code&gt;虚拟机&lt;/code&gt; → &lt;code&gt;新增&lt;/code&gt; → &lt;code&gt;导入&lt;/code&gt; → &lt;code&gt;从硬盘映像导入&lt;/code&gt; 导入刚刚上传的镜像。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/4.png?imageMogr2/format/webp/interlace/1/quality/100" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;CPU和内存分配看各种需求，我群晖是 &lt;code&gt;j1900 + 4GB&lt;/code&gt; 所以分 &lt;code&gt;1H1G&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/5.png?imageMogr2/format/webp/interlace/1/quality/100" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;分配两个网卡，一个连 &lt;code&gt;Internet&lt;/code&gt; 一个连内网。并且全部改成 &lt;code&gt;e1000&lt;/code&gt; （全双工）。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/6.png?imageMogr2/format/webp/interlace/1/quality/100" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;配置爱快&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;然后无脑下一步。创建完成之后，点击上方的 &lt;code&gt;连接&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;安装完成之后会出现如下界面。会看到两张网卡，默认 &lt;code&gt;lan1&lt;/code&gt; 会连接 &lt;code&gt;eth0&lt;/code&gt; 也就是进网口网卡。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/7.png?imageMogr2/format/webp/interlace/1/quality/100" /&gt;&lt;/figure&gt;&lt;/p&gt;
