@@ -1,78 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Fri, 03 Apr 2020 16:20:29 +0806</lastBuildDate><pubDate>Fri, 03 Apr 2020 16:20:29 +0806</pubDate><item><title>DOM实现JavaScript图片库</title><link>/archives/jsimage/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
-&lt;blockquote&gt;&lt;p&gt;我比较菜（小声bb）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;实现&lt;/h1&gt;
-&lt;h3&gt;HTML部分&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="na"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;en&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;test1&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tupianku.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Test&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt; &lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1.jpg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onclick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;showpic(this);&lt;/span&gt;
-&lt;span class="s"&gt;                 return false&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;image1&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2.jpg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onclick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;showpic(this);&lt;/span&gt;
-&lt;span class="s"&gt;                 return false&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;image2&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;3.jpg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onclick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;showpic(this);&lt;/span&gt;
-&lt;span class="s"&gt;                 return false&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;image3&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img123&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://cdn.elstec.cn/14/5.jpg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;JS部分&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;showpic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;whitchpic&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;bianliang&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;whitchpic&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;href&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;place&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img123&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;place&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;src&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;bianliang&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;原理&lt;/h1&gt;
-&lt;p&gt;创建一个函数名为 &lt;code&gt;showpic&lt;/code&gt; ， &lt;code&gt;whitchpic&lt;/code&gt; 为参数。&lt;code&gt;whitchpic&lt;/code&gt; 通过调用 &lt;code&gt;getAttribute&lt;/code&gt; ，把 &lt;code&gt;"href"&lt;/code&gt; 作为参数传递给 &lt;code&gt;getAttribute&lt;/code&gt; ，声明一个变量并把语句赋给它。
-接下来获取占位图，需要在 &lt;code&gt;html&lt;/code&gt; 部分进行修改。 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; 元素添加 &lt;code&gt;id&lt;/code&gt; ，调用 &lt;code&gt;document.getElementById&lt;/code&gt; ，再次声明一个变量并把语句赋给它。最后通过 &lt;code&gt;setAttribute&lt;/code&gt; 进行实现。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;变量2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;src&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;变量1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;html部分中，都是采用 &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; 元素,添加处理函数 &lt;code&gt;showpic(this); return false&lt;/code&gt; ，防止被带到新窗口。&lt;/p&gt;
-&lt;h1&gt;效果&lt;/h1&gt;
-&lt;html&gt;
-&lt;!--在这里插入内容--&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;test1&lt;/title&gt;
-    &lt;script type="text/javascript" src="https://cdn.elstec.cn/14/tupianku.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-        &lt;ul&gt;
-            &lt;li &gt;
-                &lt;a href="https://cdn.elstec.cn/14/1.jpg" onclick="showpic(this);
-                 return false"&gt;image1&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-                &lt;a href="https://cdn.elstec.cn/14/2.jpg" onclick="showpic(this);
-                 return false"&gt;image2&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-                &lt;a href="https://cdn.elstec.cn/14/3.jpg" onclick="showpic(this);
-                 return false"&gt;image3&lt;/a&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;img id="img123" src="https://cdn.elstec.cn/14/5.jpg"&gt;
-&lt;/body&gt;
-&lt;/html&gt;&lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/jsimage/</guid><pubDate>Thu, 13 Feb 2020 21:50:00 +0806</pubDate></item><item><title>疫情期间在家の无聊生活</title><link>/archives/20200217/</link><description>&lt;div class="notice"&gt;我   要   无   聊   死   了  &lt;/div&gt;&lt;p&gt;如题，确实挺无聊的。但是闲着没事上RTARBG下神盾局看，不得不说那个时候的画质拿到现在来也确实不错。&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Fri, 03 Apr 2020 18:04:02 +0806</lastBuildDate><pubDate>Fri, 03 Apr 2020 18:04:02 +0806</pubDate><item><title>疫情期间在家の无聊生活</title><link>/archives/20200217/</link><description>&lt;div class="notice"&gt;我   要   无   聊   死   了  &lt;/div&gt;&lt;p&gt;如题，确实挺无聊的。但是闲着没事上RTARBG下神盾局看，不得不说那个时候的画质拿到现在来也确实不错。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;div&gt;
 还有现在巨火的梨泰院class，好看是真的好看
@@ -161,7 +88,7 @@ Swal.fire({
 &lt;hr&gt;
 &lt;p&gt;其实我觉得，现在做站，这种东西花里胡哨的没必要加。治标不治本，加载这么多js还对网站性能造成影响。不过做站还是自己开心来的好。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/20200217/</guid><pubDate>Mon, 17 Feb 2020 21:50:00 +0806</pubDate></item><item><title>CloudFlare自选节点</title><link>/archives/cfcus/</link><description>&lt;h1&gt;首先&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/20200217/</guid><pubDate>Mon, 17 Feb 2020 21:50:00 +0806</pubDate></item><item><title>CloudFlare自选节点</title><link>/archives/cfcus/</link><description>&lt;h1&gt;首先&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;需要有Cloudflare Partener或使用别人的。原因很简单，因为官方只允许NS接入，CFP则可以IP/CNAME接入。这里推荐 &lt;a href="http://cdn.bnxb.com/"&gt;http://cdn.bnxb.com/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;自选IP原理就是国内DNS解析的时候分配最快的IP然后用A记录解析到这个IP上，国外保持不变。&lt;/li&gt;
@@ -212,7 +139,7 @@ Swal.fire({
 &lt;/ul&gt;
 &lt;p&gt;其他线路网上有，百度云合作线路建议电信。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/cfcus/</guid><pubDate>Fri, 28 Feb 2020 21:50:00 +0806</pubDate></item><item><title>GitHub使用GPG加密提交</title><link>/archives/gpgg/</link><description>&lt;h1&gt;过程&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/cfcus/</guid><pubDate>Fri, 28 Feb 2020 21:50:00 +0806</pubDate></item><item><title>GitHub使用GPG加密提交</title><link>/archives/gpgg/</link><description>&lt;h1&gt;过程&lt;/h1&gt;
 &lt;h2&gt;一、生成密钥&lt;/h2&gt;
 &lt;p&gt;打开Git&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --gen-key
@@ -303,7 +230,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;p&gt;这两个取消勾选即可&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/17/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/gpgg/</guid><pubDate>Sat, 29 Feb 2020 12:50:00 +0806</pubDate></item><item><title>群晖虚拟机安装lede软路由</title><link>/archives/qhlede/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/gpgg/</guid><pubDate>Sat, 29 Feb 2020 12:50:00 +0806</pubDate></item><item><title>群晖虚拟机安装lede软路由</title><link>/archives/qhlede/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;在几个月前我的k2p原地爆炸之后，我给它刷了个系统就再也进不去了。没办法只能换路由器。买了个菊花的路由器才突然想起来，菊花的路由器不能刷机。&lt;span&gt;&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/murm.png" width="56" height="56"&gt;&lt;/span&gt;近期我的硬盘刚到，就想到还有蜗牛星际这个nas，我想用群晖，但是又想刷lede。就在想可不可以在群晖虚拟机下装lede，虽然只有旁路由，但是lede和群晖同时有岂不是美滋滋。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;h3&gt;一、安装虚拟机&lt;/h3&gt;
@@ -362,7 +289,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;p&gt;然后开机看到就是全双工了。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/18/17.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/qhlede/</guid><pubDate>Sun, 01 Mar 2020 12:50:00 +0806</pubDate></item><item><title>国内Github下载加速</title><link>/archives/sgclone/</link><description>&lt;h1&gt;前言&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/qhlede/</guid><pubDate>Sun, 01 Mar 2020 12:50:00 +0806</pubDate></item><item><title>国内Github下载加速</title><link>/archives/sgclone/</link><description>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;你是否也有过这种情况， &lt;code&gt;git clone&lt;/code&gt; 基本没速度，但是无奈不能使用魔法。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;实现&lt;/h1&gt;
@@ -394,7 +321,12 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
     remote = origin
     merge = refs/heads/master&lt;/code&gt;&lt;/pre&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/sgclone/</guid><pubDate>Sun, 15 Mar 2020 12:50:00 +0806</pubDate></item><item><title>Github+jsDelivr全球静态文件加速</title><link>/archives/spasses/</link><description>&lt;h1&gt;前言&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/sgclone/</guid><pubDate>Sun, 15 Mar 2020 12:50:00 +0806</pubDate></item><item><title>Github+jsDelivr全球静态文件加速</title><link>/archives/spasses/</link><description>&lt;h1&gt;更新&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;2020年3月30日更新：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果直接使用分支进行访问，例： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;master&lt;/code&gt; 分支会有缓存，缓存应该是一天更新一次。如果想进行及时更新，可以把 &lt;code&gt;master&lt;/code&gt; 直接改成 &lt;code&gt;latest&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;p&gt;格式如下： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@latest/1.jpg&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;GitHub作为全球最大的代码托管平台，众所周知，GitHub又有GitHub Pages这个功能，使得很多静态网站都托管在GitHub上，国内访问速度一直上不去。但是jsDelivr这家CDN支持加速npm，GitHub和WordPress，jsDelivr在国外是CloudFlare节点，国内都是网速的CDN节点，速度还是飞快的，真正的全球高速。&lt;/p&gt;
 &lt;h1&gt;注意&lt;/h1&gt;
 &lt;p&gt;建议只用作静态文件加速，例如 &lt;code&gt;JS/CSS/Image&lt;/code&gt; 。并不适合大文件分发，大文件分发还是移步国内各厂的对象存储。&lt;/p&gt;
@@ -458,7 +390,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/spasses/</guid><pubDate>Tue, 17 Mar 2020 23:50:00 +0806</pubDate></item><item><title>利用Github Actions进行云编译lede固件</title><link>/archives/glede/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/spasses/</guid><pubDate>Tue, 17 Mar 2020 23:50:00 +0806</pubDate></item><item><title>利用Github Actions进行云编译lede固件</title><link>/archives/glede/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;碍于国内的网络环境，本地编译出错概率极高，我本地编译出错好几次，于是便转向了 &lt;code&gt;Github&lt;/code&gt; 云编译（这应该也算一种曲线救国hhhh）。由于 &lt;code&gt;Github&lt;/code&gt; 本身就处在国外，编译出错的几率大大降低。不过 &lt;code&gt;Github Actions&lt;/code&gt; 有免费额度，超出需要额外收费。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/21/1.png!webp" /&gt;&lt;figcaption&gt;https://github.com/features/actions&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;需要准备的&lt;/h1&gt;
@@ -579,7 +511,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在 &lt;code&gt;Actions&lt;/code&gt; 编译的这个任务中有下载地址。&lt;/p&gt;
 &lt;h1&gt;最后&lt;/h1&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/glede/</guid><pubDate>Sat, 21 Mar 2020 23:50:00 +0806</pubDate></item><item><title>群晖安装ikuai（爱快）软路由</title><link>/archives/qikuai/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/glede/</guid><pubDate>Sat, 21 Mar 2020 23:50:00 +0806</pubDate></item><item><title>群晖安装ikuai（爱快）软路由</title><link>/archives/qikuai/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;其实和安装lede没什么区别，就是配置上面会有一点区别。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;ol&gt;
@@ -639,7 +571,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/17.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;其他配置自己后续研究，至此可以愉快的上网了。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/qikuai/</guid><pubDate>Wed, 25 Mar 2020 23:50:00 +0806</pubDate></item><item><title>解决  git push Permission denied</title><link>/archives/20200330/</link><description>&lt;h1&gt;前言&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/qikuai/</guid><pubDate>Wed, 25 Mar 2020 23:50:00 +0806</pubDate></item><item><title>解决  git push Permission denied</title><link>/archives/20200330/</link><description>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;我重装了系统啥都没了hhhh，然后今天提交的时候报错。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push
 git@github.com: Permission denied &lt;span class="o"&gt;(&lt;/span&gt;publickey&lt;span class="o"&gt;)&lt;/span&gt;.
@@ -674,4 +606,14 @@ The key&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;s randomart image is:
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/23/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;点 &lt;code&gt;New SSH key&lt;/code&gt; ，把刚刚 &lt;code&gt;id_rsa.pub&lt;/code&gt; 这个文件的内容粘贴进来，保存即可。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>admin@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/20200330/</guid><pubDate>Mon, 30 Mar 2020 23:50:00 +0806</pubDate></item></channel></rss>
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/20200330/</guid><pubDate>Mon, 30 Mar 2020 23:50:00 +0806</pubDate></item><item><title>终于开学了[doge]</title><link>/archives/20200403/</link><description>&lt;div id="aplayer"&gt;
+&lt;meting-js
+server="netease"
+type="song"
+id="1419023911"
+autoplay="false"&gt;
+&lt;/meting-js&gt;
+&lt;/div&gt;&lt;div&gt;
+我总算可以开学了&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/doge.png!webp" width="24" height="24"&gt;
+&lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/24/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/20200403/</guid><pubDate>Fri, 03 Apr 2020 19:50:00 +0806</pubDate></item></channel></rss>
