@@ -1,94 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="english"><id>/</id><title>毫无作为</title><updated>2020-04-03T19:24:13.380592+08:06</updated><author><name>JCJYXJS</name><email>i@elstec.cn</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>Personal blog</subtitle><entry><id>/archives/20200217/</id><title>疫情期间在家の无聊生活</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div class="notice"&gt;我   要   无   聊   死   了  &lt;/div&gt;&lt;p&gt;如题，确实挺无聊的。但是闲着没事上RTARBG下神盾局看，不得不说那个时候的画质拿到现在来也确实不错。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;div&gt;
-还有现在巨火的梨泰院class，好看是真的好看
-&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/doge.png" width="24" height="24"&gt;不过只在Netflix和JTBC播出，观看比较麻烦其他都挺好。
-&lt;/div&gt;&lt;div class="dplayer"  data-url="https://media.elstec.cn/15/1.mp4"&gt;&lt;/div&gt;&lt;div class="photos"&gt;
-&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/3.png!webp" /&gt;&lt;/figure&gt;
-&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/4.png!webp" /&gt;&lt;/figure&gt;&lt;/div&gt;&lt;div class="photos"&gt;
-&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/5.png!webp" /&gt;&lt;/figure&gt;
-&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/6.png!webp" /&gt;&lt;/figure&gt;&lt;/div&gt;&lt;div class="photos"&gt;
-&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/7.png!webp" /&gt;&lt;/figure&gt;
-&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/8.png!webp" /&gt;&lt;/figure&gt;&lt;/div&gt;&lt;blockquote&gt;&lt;p&gt;虽然现在相对放开了，但出门总还是有点慌。每天大半夜睡早上10点起。学校也不开学，这还是我头一次如此盼望开学。一天到晚盯着电脑看属实没意思。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;于是日常回访友链。发现某博客现在还有防F12，防复制，防右键。防复制我觉得就挺神奇，因为ta不仅有防复制还有复制之后的弹窗脚本。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/15/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;反正在家里没事做，就研究研究这个好了，反正也不难，学习一下。&lt;/p&gt;
-&lt;p&gt;进入该站之后，无法通过F12，Ctrl+Shift+I调出开发者工具，只能手动。于是我返回首页并开启debug模式。在index找到跳转脚本如下。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;ConsoleManager&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;onOpen&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;href&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;href&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;./back.html&amp;quot;&lt;/span&gt;
-            &lt;span class="p"&gt;},&lt;/span&gt;
-            &lt;span class="nx"&gt;onClose&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;},&lt;/span&gt;
-            &lt;span class="nx"&gt;init&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;div&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;isOpening&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                    &lt;span class="nx"&gt;isOpened&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                &lt;span class="nb"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;defineProperty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                    &lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;isOpening&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                            &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;onOpen&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-                            &lt;span class="nx"&gt;isOpening&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                        &lt;span class="p"&gt;}&lt;/span&gt;
-                        &lt;span class="nx"&gt;isOpened&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                    &lt;span class="p"&gt;}&lt;/span&gt;
-                &lt;span class="p"&gt;});&lt;/span&gt;
-                &lt;span class="nx"&gt;setInterval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                    &lt;span class="nx"&gt;isOpened&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-                    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;isOpened&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nx"&gt;isOpening&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;onClose&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-                        &lt;span class="nx"&gt;isOpening&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                    &lt;span class="p"&gt;}&lt;/span&gt;
-                &lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nx"&gt;e3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="nx"&gt;ConsoleManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;init&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;然后在找防F12脚本的时候，看到了他的两个好兄弟 &lt;code&gt;复制弹窗和防复制&lt;/code&gt; 。这时候有意思的事情就来了，ta的站防复制为什么还有复制弹窗，反正挺迷的&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/doge.png" width="24" height="24"&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;lt;!-- 复制弹窗sweetalert2 直接访问有防盗链--&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://typecho-1257629916.file.myqcloud.com/sweetalert2.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class="c"&gt;&amp;lt;!-- 防F12 --&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;onkeydown&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;event&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;keyCode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;keyCode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="nx"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;returnValue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;};&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class="c"&gt;&amp;lt;!-- 防复制 --&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;language&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Javascript&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;oncontextmenu&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;event.returnValue=false&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;onselectstart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;event.returnValue=false&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class="c"&gt;&amp;lt;!-- 复制弹窗 --&amp;gt;&lt;/span&gt;
-document.body.oncopy = function()
-{
-Swal.fire({
-  allowOutsideClick:false,
-  allowEscapeKey:false,
-  showConfirmButton: false,
-  icon:&amp;#39;warning&amp;#39;,
-  timer: 2000,
-  title: &amp;#39;复制成功！转载请注明出处！&amp;#39;,
-});
-};
-&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
-&lt;p&gt;其实我觉得，现在做站，这种东西花里胡哨的没必要加。治标不治本，加载这么多js还对网站性能造成影响。不过做站还是自己开心来的好。&lt;/p&gt;
-&lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/20200217/" rel="alternate"/><published>2020-02-17T21:50:00+08:06</published></entry><entry><id>/archives/cfcus/</id><title>CloudFlare自选节点</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;首先&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="english"><id>/</id><title>毫无作为</title><updated>2020-04-09T20:30:09.774521+08:06</updated><author><name>JCJYXJS</name><email>i@elstec.cn</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>Personal blog</subtitle><entry><id>/archives/cfcus/</id><title>CloudFlare自选节点</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;首先&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;需要有Cloudflare Partener或使用别人的。原因很简单，因为官方只允许NS接入，CFP则可以IP/CNAME接入。这里推荐 &lt;a href="http://cdn.bnxb.com/"&gt;http://cdn.bnxb.com/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;自选IP原理就是国内DNS解析的时候分配最快的IP然后用A记录解析到这个IP上，国外保持不变。&lt;/li&gt;
@@ -139,7 +50,7 @@ Swal.fire({
 &lt;/ul&gt;
 &lt;p&gt;其他线路网上有，百度云合作线路建议电信。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/cfcus/" rel="alternate"/><published>2020-02-28T21:50:00+08:06</published></entry><entry><id>/archives/gpgg/</id><title>GitHub使用GPG加密提交</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;过程&lt;/h1&gt;
+</content><link href="/archives/cfcus/" rel="alternate"/><published>2020-02-28T21:50:00+08:06</published></entry><entry><id>/archives/gpgg/</id><title>GitHub使用GPG加密提交</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;过程&lt;/h1&gt;
 &lt;h2&gt;一、生成密钥&lt;/h2&gt;
 &lt;p&gt;打开Git&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --gen-key
@@ -230,7 +141,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;p&gt;这两个取消勾选即可&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/17/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/gpgg/" rel="alternate"/><published>2020-02-29T12:50:00+08:06</published></entry><entry><id>/archives/qhlede/</id><title>群晖虚拟机安装lede软路由</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
+</content><link href="/archives/gpgg/" rel="alternate"/><published>2020-02-29T12:50:00+08:06</published></entry><entry><id>/archives/qhlede/</id><title>群晖虚拟机安装lede软路由</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;在几个月前我的k2p原地爆炸之后，我给它刷了个系统就再也进不去了。没办法只能换路由器。买了个菊花的路由器才突然想起来，菊花的路由器不能刷机。&lt;span&gt;&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/murm.png" width="56" height="56"&gt;&lt;/span&gt;近期我的硬盘刚到，就想到还有蜗牛星际这个nas，我想用群晖，但是又想刷lede。就在想可不可以在群晖虚拟机下装lede，虽然只有旁路由，但是lede和群晖同时有岂不是美滋滋。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;h3&gt;一、安装虚拟机&lt;/h3&gt;
@@ -289,7 +200,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;p&gt;然后开机看到就是全双工了。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/18/17.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/qhlede/" rel="alternate"/><published>2020-03-01T12:50:00+08:06</published></entry><entry><id>/archives/sgclone/</id><title>国内Github下载加速</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
+</content><link href="/archives/qhlede/" rel="alternate"/><published>2020-03-01T12:50:00+08:06</published></entry><entry><id>/archives/sgclone/</id><title>国内Github下载加速</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;你是否也有过这种情况， &lt;code&gt;git clone&lt;/code&gt; 基本没速度，但是无奈不能使用魔法。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;实现&lt;/h1&gt;
@@ -321,7 +232,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
     remote = origin
     merge = refs/heads/master&lt;/code&gt;&lt;/pre&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/sgclone/" rel="alternate"/><published>2020-03-15T12:50:00+08:06</published></entry><entry><id>/archives/spasses/</id><title>Github+jsDelivr全球静态文件加速</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新&lt;/h1&gt;
+</content><link href="/archives/sgclone/" rel="alternate"/><published>2020-03-15T12:50:00+08:06</published></entry><entry><id>/archives/spasses/</id><title>Github+jsDelivr全球静态文件加速</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;2020年3月30日更新：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如果直接使用分支进行访问，例： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;master&lt;/code&gt; 分支会有缓存，缓存应该是一天更新一次。如果想进行及时更新，可以把 &lt;code&gt;master&lt;/code&gt; 直接改成 &lt;code&gt;latest&lt;/code&gt; 即可。&lt;/p&gt;
@@ -390,7 +301,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/spasses/" rel="alternate"/><published>2020-03-17T23:50:00+08:06</published></entry><entry><id>/archives/glede/</id><title>利用Github Actions进行云编译lede固件</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
+</content><link href="/archives/spasses/" rel="alternate"/><published>2020-03-17T23:50:00+08:06</published></entry><entry><id>/archives/glede/</id><title>利用Github Actions进行云编译lede固件</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;碍于国内的网络环境，本地编译出错概率极高，我本地编译出错好几次，于是便转向了 &lt;code&gt;Github&lt;/code&gt; 云编译（这应该也算一种曲线救国hhhh）。由于 &lt;code&gt;Github&lt;/code&gt; 本身就处在国外，编译出错的几率大大降低。不过 &lt;code&gt;Github Actions&lt;/code&gt; 有免费额度，超出需要额外收费。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/21/1.png!webp" /&gt;&lt;figcaption&gt;https://github.com/features/actions&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;需要准备的&lt;/h1&gt;
@@ -511,7 +422,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在 &lt;code&gt;Actions&lt;/code&gt; 编译的这个任务中有下载地址。&lt;/p&gt;
 &lt;h1&gt;最后&lt;/h1&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/glede/" rel="alternate"/><published>2020-03-21T23:50:00+08:06</published></entry><entry><id>/archives/qikuai/</id><title>群晖安装ikuai（爱快）软路由</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
+</content><link href="/archives/glede/" rel="alternate"/><published>2020-03-21T23:50:00+08:06</published></entry><entry><id>/archives/qikuai/</id><title>群晖安装ikuai（爱快）软路由</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;其实和安装lede没什么区别，就是配置上面会有一点区别。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;ol&gt;
@@ -571,7 +482,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/17.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;其他配置自己后续研究，至此可以愉快的上网了。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/qikuai/" rel="alternate"/><published>2020-03-25T23:50:00+08:06</published></entry><entry><id>/archives/20200330/</id><title>解决  git push Permission denied</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
+</content><link href="/archives/qikuai/" rel="alternate"/><published>2020-03-25T23:50:00+08:06</published></entry><entry><id>/archives/20200330/</id><title>解决  git push Permission denied</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;我重装了系统啥都没了hhhh，然后今天提交的时候报错。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push
 git@github.com: Permission denied &lt;span class="o"&gt;(&lt;/span&gt;publickey&lt;span class="o"&gt;)&lt;/span&gt;.
@@ -606,7 +517,7 @@ The key&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;s randomart image is:
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/23/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;点 &lt;code&gt;New SSH key&lt;/code&gt; ，把刚刚 &lt;code&gt;id_rsa.pub&lt;/code&gt; 这个文件的内容粘贴进来，保存即可。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/20200330/" rel="alternate"/><published>2020-03-30T23:50:00+08:06</published></entry><entry><id>/archives/20200403/</id><title>终于开学了[doge]</title><updated>2020-04-03T11:24:13.380592+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div id="aplayer"&gt;
+</content><link href="/archives/20200330/" rel="alternate"/><published>2020-03-30T23:50:00+08:06</published></entry><entry><id>/archives/20200403/</id><title>终于开学了[doge]</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div id="aplayer"&gt;
 &lt;meting-js
 server="netease"
 type="song"
@@ -616,4 +527,15 @@ autoplay="false"&gt;
 &lt;/div&gt;&lt;div&gt;
 我总算可以开学了&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/doge.png!webp" width="24" height="24"&gt;
 &lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/24/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/20200403/" rel="alternate"/><published>2020-04-03T19:50:00+08:06</published></entry></feed>
+</content><link href="/archives/20200403/" rel="alternate"/><published>2020-04-03T19:50:00+08:06</published></entry><entry><id>/archives/20200409/</id><title>夸克浏览器真是个好东西[doge]</title><updated>2020-04-09T12:30:09.774521+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;p&gt;我是真的不想做啊，每次都是好几分钟（狗头保命）。&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;不过夸克真的是好东西，直接看图，下载完成图，Ps操作一下就完事了。当然遇到要登陆的可能要统计也只能做了。&lt;/p&gt;
+&lt;div class="photos"&gt;
+&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/2.png!webp" /&gt;&lt;figcaption&gt;点点点&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/3.png!webp" /&gt;&lt;figcaption&gt;浏览器打开&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;div class="photos"&gt;
+&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/4.png!webp" /&gt;&lt;figcaption&gt;夸克&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/5.png!webp" /&gt;&lt;figcaption&gt;进入看图&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/6.png!webp" /&gt;&lt;figcaption&gt;保存&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;div&gt;
+操作完成&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/doge.png!webp" width="24" height="24"&gt;
+&lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/7.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+</content><link href="/archives/20200409/" rel="alternate"/><published>2020-04-09T19:50:00+08:06</published></entry></feed>
