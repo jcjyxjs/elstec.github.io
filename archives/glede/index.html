@@ -56,22 +56,22 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "/0c28a988fed5a02d65296885cca6dae2.json"
+            api: "/e7d03d8ef9625ffcafd0ccfa74a5ac48.json"
         }
     </script>
     
 <title>利用Github Actions进行云编译lede固件 - 毫无作为</title>
 <meta name="author" content="jcjyxjs" />
-<meta name="description" content="我想说的" />
+<meta name="description" content="更新日志" />
 <meta property="og:title" content="利用Github Actions进行云编译lede固件 - 毫无作为" />
-<meta property="og:description" content="我想说的" />
+<meta property="og:description" content="更新日志" />
 <meta property="og:site_name" content="毫无作为" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/glede/" />
 <meta property="og:image" content="" />
 <meta property="article:published_time" content="2020-03-21T23:50:00+08.00" />
 <meta name="twitter:title" content="利用Github Actions进行云编译lede固件 - 毫无作为" />
-<meta name="twitter:description" content="我想说的" />
+<meta name="twitter:description" content="更新日志" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:image" content="" />
  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.elstec.cn/favicon.png?imageMogr2/format/webp/interlace/1/quality/100" /><script type="text/javascript" src="https://js.users.51.la/20270139.js"></script>
@@ -116,7 +116,9 @@
                 
             </span>
             <div class="ga-content_body">
-                <h1>我想说的</h1>
+                <h1>更新日志</h1>
+<p>重新fork了P3的仓库，需要只用新仓库才可以进行编译，更改默认网关IP需要修改 <code>diy-part2.sh</code> 而不是 原先的 <code>diy.sh</code> 。其他均无需变动。</p>
+<h1>我想说的</h1>
 <p>碍于国内的网络环境，本地编译出错概率极高，我本地编译出错好几次，于是便转向了 <code>Github</code> 云编译（这应该也算一种曲线救国hhhh）。由于 <code>Github</code> 本身就处在国外，编译出错的几率大大降低。不过 <code>Github Actions</code> 有免费额度，超出需要额外收费。</p>
 <p><figure  size-undefined><img width="-1" height="-1" src="https://cdn.elstec.cn/21/1.png!webp" /><figcaption>https://github.com/features/actions</figcaption></figure></p>
 <h1>需要准备的</h1>
@@ -167,18 +169,21 @@
 <pre><code>https://github.com/jcjyxjs/Actions-OpenWrt</code></pre>
 <p>首先，你需要编辑固件的 <code>IP地址</code> 建议你改一下，不改的话也没事。打开并编辑下面这个文件。</p>
 
-<pre><code>Actions-OpenWrt/diy.sh</code></pre>
-<p>最后一行中，有一个 <code>192.168.1.200</code> 就是编译好固件的后台地址。你可以按需更改。</p>
+<pre><code>Actions-OpenWrt/diy-part2.sh</code></pre>
+<p>最后一行中，有一个 <code>192.168.2.100</code> 就是编译好固件的后台地址。你可以按需更改。</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#============================================================</span>
+<span class="c1"># https://github.com/P3TERX/Actions-OpenWrt</span>
+<span class="c1"># File name: diy-part2.sh</span>
+<span class="c1"># Description: OpenWrt DIY script part 2 (After Update feeds)</span>
+<span class="c1"># Lisence: MIT</span>
+<span class="c1"># Author: P3TERX</span>
+<span class="c1"># Blog: https://p3terx.com</span>
+<span class="c1">#============================================================</span>
 
-<pre><code>#!/bin/bash
-#=================================================
-# Description: DIY script
-# Lisence: MIT
-# Author: P3TERX
-# Blog: https://p3terx.com
-#=================================================
-# Modify default IP
-sed -i 's/192.168.1.1/192.168.1.200/g' package/base-files/files/bin/config_generate</code></pre>
+<span class="c1"># Modify default IP</span>
+<span class="c1">#sed -i &#39;s/192.168.1.1/192.168.2.100/g&#39; package/base-files/files/bin/config_generate</span>
+</pre></div>
 <p>改完IP地址之后。点击下方的 <code>Commit changes</code> 。</p>
 <p><figure  size-undefined><img width="-1" height="-1" src="https://cdn.elstec.cn/21/12.png!webp" /></figure></p>
 <p>然后打开你项目的 <code>Actions</code> 。无视警告，点 <code>I understand my workflows, go ahead and run them</code> 进行激活 <code>Actions</code> 。</p>

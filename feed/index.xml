@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Thu, 09 Apr 2020 20:38:14 +0806</lastBuildDate><pubDate>Thu, 09 Apr 2020 20:38:14 +0806</pubDate><item><title>CloudFlare自选节点</title><link>/archives/cfcus/</link><description>&lt;h1&gt;首先&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sun, 10 May 2020 10:36:06 +0806</lastBuildDate><pubDate>Sun, 10 May 2020 10:36:06 +0806</pubDate><item><title>CloudFlare自选节点</title><link>/archives/cfcus/</link><description>&lt;h1&gt;首先&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;需要有Cloudflare Partener或使用别人的。原因很简单，因为官方只允许NS接入，CFP则可以IP/CNAME接入。这里推荐 &lt;a href="http://cdn.bnxb.com/"&gt;http://cdn.bnxb.com/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;自选IP原理就是国内DNS解析的时候分配最快的IP然后用A记录解析到这个IP上，国外保持不变。&lt;/li&gt;
@@ -301,7 +301,9 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/spasses/</guid><pubDate>Tue, 17 Mar 2020 23:50:00 +0806</pubDate></item><item><title>利用Github Actions进行云编译lede固件</title><link>/archives/glede/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/spasses/</guid><pubDate>Tue, 17 Mar 2020 23:50:00 +0806</pubDate></item><item><title>利用Github Actions进行云编译lede固件</title><link>/archives/glede/</link><description>&lt;h1&gt;更新日志&lt;/h1&gt;
+&lt;p&gt;重新fork了P3的仓库，需要只用新仓库才可以进行编译，更改默认网关IP需要修改 &lt;code&gt;diy-part2.sh&lt;/code&gt; 而不是 原先的 &lt;code&gt;diy.sh&lt;/code&gt; 。其他均无需变动。&lt;/p&gt;
+&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;碍于国内的网络环境，本地编译出错概率极高，我本地编译出错好几次，于是便转向了 &lt;code&gt;Github&lt;/code&gt; 云编译（这应该也算一种曲线救国hhhh）。由于 &lt;code&gt;Github&lt;/code&gt; 本身就处在国外，编译出错的几率大大降低。不过 &lt;code&gt;Github Actions&lt;/code&gt; 有免费额度，超出需要额外收费。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/21/1.png!webp" /&gt;&lt;figcaption&gt;https://github.com/features/actions&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;需要准备的&lt;/h1&gt;
@@ -352,18 +354,21 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;pre&gt;&lt;code&gt;https://github.com/jcjyxjs/Actions-OpenWrt&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;首先，你需要编辑固件的 &lt;code&gt;IP地址&lt;/code&gt; 建议你改一下，不改的话也没事。打开并编辑下面这个文件。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Actions-OpenWrt/diy.sh&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;最后一行中，有一个 &lt;code&gt;192.168.1.200&lt;/code&gt; 就是编译好固件的后台地址。你可以按需更改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Actions-OpenWrt/diy-part2.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后一行中，有一个 &lt;code&gt;192.168.2.100&lt;/code&gt; 就是编译好固件的后台地址。你可以按需更改。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c1"&gt;#============================================================&lt;/span&gt;
+&lt;span class="c1"&gt;# https://github.com/P3TERX/Actions-OpenWrt&lt;/span&gt;
+&lt;span class="c1"&gt;# File name: diy-part2.sh&lt;/span&gt;
+&lt;span class="c1"&gt;# Description: OpenWrt DIY script part 2 (After Update feeds)&lt;/span&gt;
+&lt;span class="c1"&gt;# Lisence: MIT&lt;/span&gt;
+&lt;span class="c1"&gt;# Author: P3TERX&lt;/span&gt;
+&lt;span class="c1"&gt;# Blog: https://p3terx.com&lt;/span&gt;
+&lt;span class="c1"&gt;#============================================================&lt;/span&gt;
 
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-#=================================================
-# Description: DIY script
-# Lisence: MIT
-# Author: P3TERX
-# Blog: https://p3terx.com
-#=================================================
-# Modify default IP
-sed -i 's/192.168.1.1/192.168.1.200/g' package/base-files/files/bin/config_generate&lt;/code&gt;&lt;/pre&gt;
+&lt;span class="c1"&gt;# Modify default IP&lt;/span&gt;
+&lt;span class="c1"&gt;#sed -i &amp;#39;s/192.168.1.1/192.168.2.100/g&amp;#39; package/base-files/files/bin/config_generate&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;改完IP地址之后。点击下方的 &lt;code&gt;Commit changes&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/21/12.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;然后打开你项目的 &lt;code&gt;Actions&lt;/code&gt; 。无视警告，点 &lt;code&gt;I understand my workflows, go ahead and run them&lt;/code&gt; 进行激活 &lt;code&gt;Actions&lt;/code&gt; 。&lt;/p&gt;
