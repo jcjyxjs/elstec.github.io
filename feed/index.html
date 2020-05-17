@@ -1,96 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Fri, 15 May 2020 16:20:43 +0806</lastBuildDate><pubDate>Fri, 15 May 2020 16:20:43 +0806</pubDate><item><title>GitHub使用GPG加密提交</title><link>/archives/gpgg/</link><description>&lt;h1&gt;过程&lt;/h1&gt;
-&lt;h2&gt;一、生成密钥&lt;/h2&gt;
-&lt;p&gt;打开Git&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --gen-key
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;会提示如下内容&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg --gen-key
-gpg &lt;span class="o"&gt;(&lt;/span&gt;GnuPG&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.2.19-unknown&lt;span class="p"&gt;;&lt;/span&gt; Copyright &lt;span class="o"&gt;(&lt;/span&gt;C&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2019&lt;/span&gt; Free Software Foundation, Inc.
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-
-gpg: directory &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg&amp;#39;&lt;/span&gt; created
-gpg: keybox &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg/pubring.kbx&amp;#39;&lt;/span&gt; created
-Note: Use &lt;span class="s2"&gt;&amp;quot;gpg --full-generate-key&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; a full featured key generation dialog.
-
-GnuPG needs to construct a user ID to identify your key.
-
-Real name: 你的用户名
-Email address: 你的邮箱（必须跟GitHub一样）
-You selected this USER-ID:
-    &lt;span class="s2"&gt;&amp;quot;用户名 &amp;lt;邮箱&amp;gt;&amp;quot;&lt;/span&gt;
-
-Change &lt;span class="o"&gt;(&lt;/span&gt;N&lt;span class="o"&gt;)&lt;/span&gt;ame, &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt;mail, or &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;kay/&lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt;uit? o
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; on the keyboard, move the mouse, utilize the
-disks&lt;span class="o"&gt;)&lt;/span&gt; during the prime generation&lt;span class="p"&gt;;&lt;/span&gt; this gives the random number
-generator a better chance to gain enough entropy.
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; on the keyboard, move the mouse, utilize the
-disks&lt;span class="o"&gt;)&lt;/span&gt; during the prime generation&lt;span class="p"&gt;;&lt;/span&gt; this gives the random number
-generator a better chance to gain enough entropy.
-gpg: /c/Users/24443/.gnupg/trustdb.gpg: trustdb created
-gpg: key XXXXXXXXXXXXXXXX marked as ultimately trusted
-gpg: directory &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg/openpgp-revocs.d&amp;#39;&lt;/span&gt; created
-gpg: revocation certificate stored as &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg/openpgp-revocs.d/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.rev&amp;#39;&lt;/span&gt;
-public and secret key created and signed.
-
-pub   rsa2048 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;SC&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-uid                      用户名 &amp;lt;邮箱&amp;gt;
-sub   rsa2048 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;E&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;生成完之后，再次输入&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --list-keys --keyid-format short
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;提示如下内容&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/c/Users/24443/.gnupg/pubring.kbx
----------------------------------
-pub   rsa2048/12345678 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;SC&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-uid         &lt;span class="o"&gt;[&lt;/span&gt;ultimate&lt;span class="o"&gt;]&lt;/span&gt; 用户名 &amp;lt;邮箱&amp;gt;
-sub   rsa2048/15558FF9 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;E&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;pub是公钥，sub是私钥，pub那行的 &lt;code&gt;12345678&lt;/code&gt; 才是&lt;em&gt;GPG Key ID&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;输入如下内容获取公钥&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --armor --export pub GPG key ID
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;二、GitHub配置GPG公钥&lt;/h2&gt;
-&lt;p&gt;打开 &lt;a href="https://github.com/settings/keys"&gt;https://github.com/settings/keys&lt;/a&gt; 。点击 &lt;code&gt;New GPG Key&lt;/code&gt; ，输入刚刚复制的公钥，然后点击 &lt;code&gt;Add GPG Key&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;三、配置本地Git&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;设置签名时用的key &lt;code&gt;git config --global 用户名.signingkey pub GPG key ID&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;开启GPG签名: &lt;code&gt;commit：git config commit.gpgsign true&lt;/code&gt; &lt;/li&gt;
-&lt;li&gt;关闭则是：&lt;code&gt;git config commit.gpgsign false&lt;/code&gt; &lt;/li&gt;
-&lt;li&gt;如果想让所有本地仓库都使用GPG签名：&lt;code&gt;git config --global commit.gpgsign true&lt;/code&gt; &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;em&gt;（提交的时候会让你输入密码）&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;四、效果&lt;/h2&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/17/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;五、其他&lt;/h2&gt;
-&lt;p&gt;我遇到的报错&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push -u origin master
-Enumerating objects: &lt;span class="m"&gt;327&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Counting objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;327&lt;/span&gt;/327&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Delta compression using up to &lt;span class="m"&gt;12&lt;/span&gt; threads
-Compressing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;95&lt;/span&gt;/95&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Writing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;176&lt;/span&gt;/176&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="m"&gt;43&lt;/span&gt;.64 KiB &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="m"&gt;647&lt;/span&gt;.00 KiB/s, &lt;span class="k"&gt;done&lt;/span&gt;.
-Total &lt;span class="m"&gt;176&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;86&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;, reused &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-remote: Resolving deltas: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;86&lt;/span&gt;/86&lt;span class="o"&gt;)&lt;/span&gt;, completed with &lt;span class="m"&gt;68&lt;/span&gt; &lt;span class="nb"&gt;local&lt;/span&gt; objects.
-remote: error: GH007: Your push would publish a private email address.
-remote: You can make your email public or disable this protection by visiting:
-remote: http://github.com/settings/emails
-To github.com:jcjyxjs/jcjyxjs.github.io.git
- ! &lt;span class="o"&gt;[&lt;/span&gt;remote rejected&lt;span class="o"&gt;]&lt;/span&gt; master -&amp;gt; master &lt;span class="o"&gt;(&lt;/span&gt;push declined due to email privacy restrictions&lt;span class="o"&gt;)&lt;/span&gt;
-error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.com:jcjyxjs/jcjyxjs.github.io.git&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;解决方案&lt;/h3&gt;
-&lt;p&gt;打开 &lt;a href="https://github.com/settings/emails"&gt;https://github.com/settings/emails&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这两个取消勾选即可&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/17/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/gpgg/</guid><pubDate>Sat, 29 Feb 2020 12:50:00 +0806</pubDate></item><item><title>群晖虚拟机安装lede软路由</title><link>/archives/qhlede/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sun, 17 May 2020 10:04:07 +0806</lastBuildDate><pubDate>Sun, 17 May 2020 10:04:07 +0806</pubDate><item><title>群晖虚拟机安装lede软路由</title><link>/archives/qhlede/</link><description>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;在几个月前我的k2p原地爆炸之后，我给它刷了个系统就再也进不去了。没办法只能换路由器。买了个菊花的路由器才突然想起来，菊花的路由器不能刷机。&lt;span&gt;&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/murm.png" width="56" height="56"&gt;&lt;/span&gt;近期我的硬盘刚到，就想到还有蜗牛星际这个nas，我想用群晖，但是又想刷lede。就在想可不可以在群晖虚拟机下装lede，虽然只有旁路由，但是lede和群晖同时有岂不是美滋滋。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;h3&gt;一、安装虚拟机&lt;/h3&gt;
@@ -527,4 +436,12 @@ autoplay="false"&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/27/16.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;结束之后，基本能用。但我这品牌机声卡是科胜讯的，网上找不到相关驱动，我也不会做，就买了一个 &lt;code&gt;usb&lt;/code&gt; 声卡驱动凑合着用[doge]。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/10-14-5-mac1/</guid><pubDate>Fri, 15 May 2020 19:50:00 +0806</pubDate></item></channel></rss>
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/10-14-5-mac1/</guid><pubDate>Fri, 15 May 2020 19:50:00 +0806</pubDate></item><item><title>Epic本周免费领GTA5</title><link>/archives/free-gtav/</link><description>&lt;p&gt;如图，本周Epic商城免费送GTA5，而且是一经入库永久拥有，并不是限免几天，而且还是豪华版，自带新手包。直到5月21号前都可以免费领。&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;新手包具体内容官网有介绍。&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;不过怎么跟育碧一样不买免费送了。然后不出意外Epic商城崩了hhhhh&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/3.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;现在谁还敢说自己没有GTA5了？（滑稽）&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/4.jpg!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/free-gtav/</guid><pubDate>Sun, 17 May 2020 19:50:00 +0806</pubDate></item></channel></rss>

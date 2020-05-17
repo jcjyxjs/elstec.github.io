@@ -1,96 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="english"><id>/</id><title>毫无作为</title><updated>2020-05-15T16:20:43.575397+08:06</updated><author><name>JCJYXJS</name><email>i@elstec.cn</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>Personal blog</subtitle><entry><id>/archives/gpgg/</id><title>GitHub使用GPG加密提交</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;过程&lt;/h1&gt;
-&lt;h2&gt;一、生成密钥&lt;/h2&gt;
-&lt;p&gt;打开Git&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --gen-key
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;会提示如下内容&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg --gen-key
-gpg &lt;span class="o"&gt;(&lt;/span&gt;GnuPG&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.2.19-unknown&lt;span class="p"&gt;;&lt;/span&gt; Copyright &lt;span class="o"&gt;(&lt;/span&gt;C&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2019&lt;/span&gt; Free Software Foundation, Inc.
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-
-gpg: directory &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg&amp;#39;&lt;/span&gt; created
-gpg: keybox &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg/pubring.kbx&amp;#39;&lt;/span&gt; created
-Note: Use &lt;span class="s2"&gt;&amp;quot;gpg --full-generate-key&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; a full featured key generation dialog.
-
-GnuPG needs to construct a user ID to identify your key.
-
-Real name: 你的用户名
-Email address: 你的邮箱（必须跟GitHub一样）
-You selected this USER-ID:
-    &lt;span class="s2"&gt;&amp;quot;用户名 &amp;lt;邮箱&amp;gt;&amp;quot;&lt;/span&gt;
-
-Change &lt;span class="o"&gt;(&lt;/span&gt;N&lt;span class="o"&gt;)&lt;/span&gt;ame, &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt;mail, or &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;kay/&lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt;uit? o
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; on the keyboard, move the mouse, utilize the
-disks&lt;span class="o"&gt;)&lt;/span&gt; during the prime generation&lt;span class="p"&gt;;&lt;/span&gt; this gives the random number
-generator a better chance to gain enough entropy.
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; on the keyboard, move the mouse, utilize the
-disks&lt;span class="o"&gt;)&lt;/span&gt; during the prime generation&lt;span class="p"&gt;;&lt;/span&gt; this gives the random number
-generator a better chance to gain enough entropy.
-gpg: /c/Users/24443/.gnupg/trustdb.gpg: trustdb created
-gpg: key XXXXXXXXXXXXXXXX marked as ultimately trusted
-gpg: directory &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg/openpgp-revocs.d&amp;#39;&lt;/span&gt; created
-gpg: revocation certificate stored as &lt;span class="s1"&gt;&amp;#39;/c/Users/24443/.gnupg/openpgp-revocs.d/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.rev&amp;#39;&lt;/span&gt;
-public and secret key created and signed.
-
-pub   rsa2048 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;SC&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-uid                      用户名 &amp;lt;邮箱&amp;gt;
-sub   rsa2048 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;E&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;生成完之后，再次输入&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --list-keys --keyid-format short
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;提示如下内容&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/c/Users/24443/.gnupg/pubring.kbx
----------------------------------
-pub   rsa2048/12345678 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;SC&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-uid         &lt;span class="o"&gt;[&lt;/span&gt;ultimate&lt;span class="o"&gt;]&lt;/span&gt; 用户名 &amp;lt;邮箱&amp;gt;
-sub   rsa2048/15558FF9 &lt;span class="m"&gt;2020&lt;/span&gt;-02-28 &lt;span class="o"&gt;[&lt;/span&gt;E&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;expires: &lt;span class="m"&gt;2022&lt;/span&gt;-02-27&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;pub是公钥，sub是私钥，pub那行的 &lt;code&gt;12345678&lt;/code&gt; 才是&lt;em&gt;GPG Key ID&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;输入如下内容获取公钥&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gpg --armor --export pub GPG key ID
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;二、GitHub配置GPG公钥&lt;/h2&gt;
-&lt;p&gt;打开 &lt;a href="https://github.com/settings/keys"&gt;https://github.com/settings/keys&lt;/a&gt; 。点击 &lt;code&gt;New GPG Key&lt;/code&gt; ，输入刚刚复制的公钥，然后点击 &lt;code&gt;Add GPG Key&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;三、配置本地Git&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;设置签名时用的key &lt;code&gt;git config --global 用户名.signingkey pub GPG key ID&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;开启GPG签名: &lt;code&gt;commit：git config commit.gpgsign true&lt;/code&gt; &lt;/li&gt;
-&lt;li&gt;关闭则是：&lt;code&gt;git config commit.gpgsign false&lt;/code&gt; &lt;/li&gt;
-&lt;li&gt;如果想让所有本地仓库都使用GPG签名：&lt;code&gt;git config --global commit.gpgsign true&lt;/code&gt; &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;em&gt;（提交的时候会让你输入密码）&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;四、效果&lt;/h2&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/17/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;五、其他&lt;/h2&gt;
-&lt;p&gt;我遇到的报错&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push -u origin master
-Enumerating objects: &lt;span class="m"&gt;327&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Counting objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;327&lt;/span&gt;/327&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Delta compression using up to &lt;span class="m"&gt;12&lt;/span&gt; threads
-Compressing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;95&lt;/span&gt;/95&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Writing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;176&lt;/span&gt;/176&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="m"&gt;43&lt;/span&gt;.64 KiB &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="m"&gt;647&lt;/span&gt;.00 KiB/s, &lt;span class="k"&gt;done&lt;/span&gt;.
-Total &lt;span class="m"&gt;176&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;86&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;, reused &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-remote: Resolving deltas: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;86&lt;/span&gt;/86&lt;span class="o"&gt;)&lt;/span&gt;, completed with &lt;span class="m"&gt;68&lt;/span&gt; &lt;span class="nb"&gt;local&lt;/span&gt; objects.
-remote: error: GH007: Your push would publish a private email address.
-remote: You can make your email public or disable this protection by visiting:
-remote: http://github.com/settings/emails
-To github.com:jcjyxjs/jcjyxjs.github.io.git
- ! &lt;span class="o"&gt;[&lt;/span&gt;remote rejected&lt;span class="o"&gt;]&lt;/span&gt; master -&amp;gt; master &lt;span class="o"&gt;(&lt;/span&gt;push declined due to email privacy restrictions&lt;span class="o"&gt;)&lt;/span&gt;
-error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.com:jcjyxjs/jcjyxjs.github.io.git&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;解决方案&lt;/h3&gt;
-&lt;p&gt;打开 &lt;a href="https://github.com/settings/emails"&gt;https://github.com/settings/emails&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这两个取消勾选即可&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/17/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/gpgg/" rel="alternate"/><published>2020-02-29T12:50:00+08:06</published></entry><entry><id>/archives/qhlede/</id><title>群晖虚拟机安装lede软路由</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="english"><id>/</id><title>毫无作为</title><updated>2020-05-17T10:04:07.450281+08:06</updated><author><name>JCJYXJS</name><email>i@elstec.cn</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>Personal blog</subtitle><entry><id>/archives/qhlede/</id><title>群晖虚拟机安装lede软路由</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;在几个月前我的k2p原地爆炸之后，我给它刷了个系统就再也进不去了。没办法只能换路由器。买了个菊花的路由器才突然想起来，菊花的路由器不能刷机。&lt;span&gt;&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/murm.png" width="56" height="56"&gt;&lt;/span&gt;近期我的硬盘刚到，就想到还有蜗牛星际这个nas，我想用群晖，但是又想刷lede。就在想可不可以在群晖虚拟机下装lede，虽然只有旁路由，但是lede和群晖同时有岂不是美滋滋。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;h3&gt;一、安装虚拟机&lt;/h3&gt;
@@ -149,7 +58,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;p&gt;然后开机看到就是全双工了。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/18/17.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/qhlede/" rel="alternate"/><published>2020-03-01T12:50:00+08:06</published></entry><entry><id>/archives/sgclone/</id><title>国内Github下载加速</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
+</content><link href="/archives/qhlede/" rel="alternate"/><published>2020-03-01T12:50:00+08:06</published></entry><entry><id>/archives/sgclone/</id><title>国内Github下载加速</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;你是否也有过这种情况， &lt;code&gt;git clone&lt;/code&gt; 基本没速度，但是无奈不能使用魔法。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;实现&lt;/h1&gt;
@@ -181,7 +90,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
     remote = origin
     merge = refs/heads/master&lt;/code&gt;&lt;/pre&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/sgclone/" rel="alternate"/><published>2020-03-15T12:50:00+08:06</published></entry><entry><id>/archives/spasses/</id><title>Github+jsDelivr全球静态文件加速</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新&lt;/h1&gt;
+</content><link href="/archives/sgclone/" rel="alternate"/><published>2020-03-15T12:50:00+08:06</published></entry><entry><id>/archives/spasses/</id><title>Github+jsDelivr全球静态文件加速</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;2020年3月30日更新：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如果直接使用分支进行访问，例： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;master&lt;/code&gt; 分支会有缓存，缓存应该是一天更新一次。如果想进行及时更新，可以把 &lt;code&gt;master&lt;/code&gt; 直接改成 &lt;code&gt;latest&lt;/code&gt; 即可。&lt;/p&gt;
@@ -250,7 +159,7 @@ error: failed to push some refs to &lt;span class="s1"&gt;&amp;#39;git@github.co
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/spasses/" rel="alternate"/><published>2020-03-17T23:50:00+08:06</published></entry><entry><id>/archives/glede/</id><title>利用Github Actions进行云编译lede固件</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新日志&lt;/h1&gt;
+</content><link href="/archives/spasses/" rel="alternate"/><published>2020-03-17T23:50:00+08:06</published></entry><entry><id>/archives/glede/</id><title>利用Github Actions进行云编译lede固件</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新日志&lt;/h1&gt;
 &lt;p&gt;重新fork了P3的仓库，需要只用新仓库才可以进行编译，更改默认网关IP需要修改 &lt;code&gt;diy-part2.sh&lt;/code&gt; 而不是 原先的 &lt;code&gt;diy.sh&lt;/code&gt; 。其他均无需变动。&lt;/p&gt;
 &lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;碍于国内的网络环境，本地编译出错概率极高，我本地编译出错好几次，于是便转向了 &lt;code&gt;Github&lt;/code&gt; 云编译（这应该也算一种曲线救国hhhh）。由于 &lt;code&gt;Github&lt;/code&gt; 本身就处在国外，编译出错的几率大大降低。不过 &lt;code&gt;Github Actions&lt;/code&gt; 有免费额度，超出需要额外收费。&lt;/p&gt;
@@ -376,7 +285,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在 &lt;code&gt;Actions&lt;/code&gt; 编译的这个任务中有下载地址。&lt;/p&gt;
 &lt;h1&gt;最后&lt;/h1&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/glede/" rel="alternate"/><published>2020-03-21T23:50:00+08:06</published></entry><entry><id>/archives/qikuai/</id><title>群晖安装ikuai（爱快）软路由</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
+</content><link href="/archives/glede/" rel="alternate"/><published>2020-03-21T23:50:00+08:06</published></entry><entry><id>/archives/qikuai/</id><title>群晖安装ikuai（爱快）软路由</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;其实和安装lede没什么区别，就是配置上面会有一点区别。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;ol&gt;
@@ -436,7 +345,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/17.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;其他配置自己后续研究，至此可以愉快的上网了。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/qikuai/" rel="alternate"/><published>2020-03-25T23:50:00+08:06</published></entry><entry><id>/archives/20200330/</id><title>解决  git push Permission denied</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
+</content><link href="/archives/qikuai/" rel="alternate"/><published>2020-03-25T23:50:00+08:06</published></entry><entry><id>/archives/20200330/</id><title>解决  git push Permission denied</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;我重装了系统啥都没了hhhh，然后今天提交的时候报错。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push
 git@github.com: Permission denied &lt;span class="o"&gt;(&lt;/span&gt;publickey&lt;span class="o"&gt;)&lt;/span&gt;.
@@ -471,7 +380,7 @@ The key&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;s randomart image is:
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/23/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;点 &lt;code&gt;New SSH key&lt;/code&gt; ，把刚刚 &lt;code&gt;id_rsa.pub&lt;/code&gt; 这个文件的内容粘贴进来，保存即可。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/20200330/" rel="alternate"/><published>2020-03-30T23:50:00+08:06</published></entry><entry><id>/archives/20200403/</id><title>终于开学了[doge]</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div id="aplayer"&gt;
+</content><link href="/archives/20200330/" rel="alternate"/><published>2020-03-30T23:50:00+08:06</published></entry><entry><id>/archives/20200403/</id><title>终于开学了[doge]</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div id="aplayer"&gt;
 &lt;meting-js
 server="netease"
 type="song"
@@ -481,7 +390,7 @@ autoplay="false"&gt;
 &lt;/div&gt;&lt;div&gt;
 我总算可以开学了&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/doge.png!webp" width="24" height="24"&gt;
 &lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/24/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/20200403/" rel="alternate"/><published>2020-04-03T19:50:00+08:06</published></entry><entry><id>/archives/20200409/</id><title>夸克浏览器真是个好东西[doge]</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div&gt;
+</content><link href="/archives/20200403/" rel="alternate"/><published>2020-04-03T19:50:00+08:06</published></entry><entry><id>/archives/20200409/</id><title>夸克浏览器真是个好东西[doge]</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div&gt;
 我是真的不想做啊&lt;img style="display:inline" src="https://cdn.elstec.cn/ka/coolapk_emotion_56_dogexiaoku.png!webp" width="24" height="24"&gt;每次都是好几分钟（狗头保命）。
 &lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;不过夸克真的是好东西，直接看图，下载完成图，Ps操作一下就完事了。当然遇到要登陆的可能要统计也只能做了。&lt;/p&gt;
@@ -493,7 +402,7 @@ autoplay="false"&gt;
 &lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/6.png!webp" /&gt;&lt;figcaption&gt;保存&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;div&gt;
 操作完成&lt;img style="display:inline" src="https://cdn.elstec.cn/ka/coolapk_emotion_57_dogehechi.png!webp" width="24" height="24"&gt;
 &lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/7.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/20200409/" rel="alternate"/><published>2020-04-09T19:50:00+08:06</published></entry><entry><id>/archives/10-14-5-mac1/</id><title>记一次学校电脑装Mojave10.14.5</title><updated>2020-05-15T08:20:43.575397+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
+</content><link href="/archives/20200409/" rel="alternate"/><published>2020-04-09T19:50:00+08:06</published></entry><entry><id>/archives/10-14-5-mac1/</id><title>记一次学校电脑装Mojave10.14.5</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;学校电脑是政府统一采购的品牌机，本来抱着试一试的想法装，结果直接就成功引导进安装了。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/27/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;具体型号是： &lt;code&gt;HP ProDesk 480 G4 MT Business PC&lt;/code&gt;&lt;/p&gt;
@@ -527,4 +436,12 @@ autoplay="false"&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/27/16.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;结束之后，基本能用。但我这品牌机声卡是科胜讯的，网上找不到相关驱动，我也不会做，就买了一个 &lt;code&gt;usb&lt;/code&gt; 声卡驱动凑合着用[doge]。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/10-14-5-mac1/" rel="alternate"/><published>2020-05-15T19:50:00+08:06</published></entry></feed>
+</content><link href="/archives/10-14-5-mac1/" rel="alternate"/><published>2020-05-15T19:50:00+08:06</published></entry><entry><id>/archives/free-gtav/</id><title>Epic本周免费领GTA5</title><updated>2020-05-17T02:04:07.450281+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;p&gt;如图，本周Epic商城免费送GTA5，而且是一经入库永久拥有，并不是限免几天，而且还是豪华版，自带新手包。直到5月21号前都可以免费领。&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;新手包具体内容官网有介绍。&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;不过怎么跟育碧一样不买免费送了。然后不出意外Epic商城崩了hhhhh&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/3.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;现在谁还敢说自己没有GTA5了？（滑稽）&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/4.jpg!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+</content><link href="/archives/free-gtav/" rel="alternate"/><published>2020-05-17T19:50:00+08:06</published></entry></feed>
