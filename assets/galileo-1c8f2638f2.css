@@ -205,11 +205,11 @@ a[no-style]:hover {
 }
 
 .yue ::-moz-selection {
-	background-color: #ffca27
+	background-color: #6699FF
 }
 
 .yue ::selection {
-	background-color: #ffca27
+	background-color: #6699FF
 }
 
 .yue h1,.yue h2,.yue h3,.yue h4,.yue h5,.yue h6 {
@@ -259,13 +259,13 @@ a[no-style]:hover {
 .yue a {
 	word-wrap: break-word;
 	color: #333;
-	border-bottom: 2px solid rgba(255,202,39,.45);
+	border-bottom: 2px solid #6699FF;
 	text-decoration: none;
 	position: relative
 }
 
 .yue a:hover {
-	background: #ffca27
+	background: #6699FF
 }
 
 .yue .dplayer-menu .dplayer-menu-item a {
@@ -977,7 +977,7 @@ a[no-style]:hover {
 }
 
 :not(.dplayer) a.ga-highlight:hover {
-	background: #ffca27
+	background: #6699FF
 }
 
 .bili-player {
@@ -1009,7 +1009,7 @@ a[no-style]:hover {
 	content: "";
 	width: 1.5rem;
 	height: 1.5rem;
-	background: #ffca27;
+	background: #6699FF;
 	position: absolute;
 	left: 0;
 	top: 4px
@@ -1183,7 +1183,7 @@ main>.ga-section::after {
 
 .ga-section#ga-external_links>ul>li a {
 	font-size: 1rem;
-	border-bottom: 2px solid rgba(255,202,39,.45)
+	border-bottom: 2px solid #6699FF
 }
 
 main>.ga-content {

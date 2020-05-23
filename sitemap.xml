@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/dark/</loc>
+    <lastmod>2020-05-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/free-gtav/</loc>
     <lastmod>2020-05-17</lastmod>
     <changefreq>always</changefreq>
