@@ -3638,9 +3638,45 @@ button[data-balloon] {
 	margin-bottom: 1.24em
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background-color: #cecece;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #999999;
+}
+
+::-webkit-scrollbar-thumb:active {
+	background-color: #444444;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #cecece;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background: #1a1a1a;
+	}
+	
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+		background-color: #444444;
+	}
+	
+	::-webkit-scrollbar-thumb {
+		background-color: #888888;
+	}
+	
+	::-webkit-scrollbar-thumb:active {
+		background-color: #666666;
+	}
+	
+	::-webkit-scrollbar-track {
+		background-color: #444444;
 	}
 
 	#ga-header div[first] aside#ga-brand h1 a {
@@ -3712,7 +3748,7 @@ button[data-balloon] {
 	}
 
 	.ga-content div.links .board-item {
-		background: #cecece;
+		background: #1a1a1a;
 	}
 
 	.yue pre {
@@ -3823,10 +3859,10 @@ button[data-balloon] {
 	}
 
 	.v .vlist .vcard .vh .vmeta .vat {
-		color: #bbbbbb!important;
+		color: #6699FF!important;
 	}
 
-	.ga-section#ga-external_links>ul>li>a:hover,.yue a:hover{
+	.ga-section#ga-external_links>ul>li>a:hover {
 		background-color: #333333!important;
 	}
 
@@ -3883,5 +3919,17 @@ button[data-balloon] {
 	
 	.aplayer.aplayer-withlist .aplayer-info {
 		border-bottom: 0;
+	}
+	
+	.v .vlist .vcard .vquote {
+		border-left: 1px dashed #555555!important;
+	}
+	
+	.v .vlist .vcard .vh {
+		border-bottom-color: #555555!important;
+	}
+	
+	.v .vwrap .vheader .vinput:focus {
+		border-bottom-color: #6699FF;
 	}
 }
