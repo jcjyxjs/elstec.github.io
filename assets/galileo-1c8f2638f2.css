@@ -3930,6 +3930,6 @@ button[data-balloon] {
 	}
 	
 	.v .vwrap .vheader .vinput:focus {
-		border-bottom-color: #6699FF;
+		border-bottom-color: #6699FF!important;
 	}
 }
