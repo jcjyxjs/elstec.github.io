@@ -265,7 +265,9 @@ a[no-style]:hover {
 }
 
 .yue a:hover {
-	background: #6699FF
+	background: #6699FF;
+	-webkit-transition: .2s cubic-bezier(.25,.46,.45,.94) all;
+	transition: .2s cubic-bezier(.25,.46,.45,.94) all;
 }
 
 .yue .dplayer-menu .dplayer-menu-item a {
@@ -977,7 +979,9 @@ a[no-style]:hover {
 }
 
 :not(.dplayer) a.ga-highlight:hover {
-	background: #6699FF
+	background: #6699FF;
+	-webkit-transition: .2s cubic-bezier(.25,.46,.45,.94) all;
+	transition: .2s cubic-bezier(.25,.46,.45,.94) all;
 }
 
 .bili-player {
@@ -1225,7 +1229,9 @@ main>.ga-content {
 }
 
 .ga-content div#ga-tags span a {
-	color: rgba(51,51,51,.6)
+	color: rgba(51,51,51,.6);
+	-webkit-transition: .2s cubic-bezier(.25,.46,.45,.94) all;
+	transition: .2s cubic-bezier(.25,.46,.45,.94) all;
 }
 
 .ga-content div#ga-tags span {
@@ -3868,10 +3874,14 @@ button[data-balloon] {
 
 	#ga-header div[second] nav ul li a:hover {
 		background-color: #333333!important;
+		-webkit-transition: .2s cubic-bezier(.25,.46,.45,.94) all;
+		transition: .2s cubic-bezier(.25,.46,.45,.94) all;
 	}
 
 	.ga-section#ga-about>ul>li a:hover, .ga-section#ga-archive_list>ul>li a:hover, .ga-section#ga-external_links>ul>li a:hover, .ga-section#ga-post_list>ul>li a:hover {
 		background-color: #333333!important;
+		-webkit-transition: .2s cubic-bezier(.25,.46,.45,.94) all;
+		transition: .2s cubic-bezier(.25,.46,.45,.94) all;
 	}
 	.yue .notice {
 		background-color: #333333;
@@ -3887,6 +3897,8 @@ button[data-balloon] {
 	
 	.ga-section#ga-pager a:hover {
 		background-color: #333333!important;
+		-webkit-transition: .2s cubic-bezier(.25,.46,.45,.94) all;
+		transition: .2s cubic-bezier(.25,.46,.45,.94) all;
 	}
 	
 	#ga-content_pager>div a:hover {
@@ -3932,4 +3944,12 @@ button[data-balloon] {
 	.v .vwrap .vheader .vinput:focus {
 		border-bottom-color: #6699FF!important;
 	}
+	
+	/*
+	hover过渡动画开始
+	*/
+	.ga-content div#ga-tags span a:hover {
+		color: white;
+	}
+	
 }
