@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sat, 13 Jun 2020 13:32:23 +0806</lastBuildDate><pubDate>Sat, 13 Jun 2020 13:32:23 +0806</pubDate><item><title>Github+jsDelivr全球静态文件加速</title><link>/archives/spasses/</link><description>&lt;h1&gt;更新&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sat, 13 Jun 2020 13:44:51 +0806</lastBuildDate><pubDate>Sat, 13 Jun 2020 13:44:51 +0806</pubDate><item><title>Github+jsDelivr全球静态文件加速</title><link>/archives/spasses/</link><description>&lt;h1&gt;更新&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;2020年3月30日更新：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如果直接使用分支进行访问，例： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;master&lt;/code&gt; 分支会有缓存，缓存应该是一天更新一次。如果想进行及时更新，可以把 &lt;code&gt;master&lt;/code&gt; 直接改成 &lt;code&gt;latest&lt;/code&gt; 即可。&lt;/p&gt;
@@ -369,8 +369,11 @@ autoplay="false"&gt;
 </description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/dark/</guid><pubDate>Wed, 20 May 2020 19:50:00 +0806</pubDate></item><item><title>编译OpenWrt固件中找不到luci-app-ssr-plus</title><link>/archives/op-no-luci-app-ssr-plus/</link><description>&lt;h1&gt;我的解决方案（你可以参考但可以不是必须要一样）&lt;/h1&gt;
 &lt;h3&gt;我是云编译，所以是 &lt;code&gt;Fork&lt;/code&gt; 仓库，本地编译的话需要编辑的文件一样。&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;Fork&lt;/code&gt; 大雕的 &lt;code&gt;Lede&lt;/code&gt; 仓库。&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Fork&lt;/code&gt; 大雕的 &lt;code&gt;Lede&lt;/code&gt; 仓库。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;https://github.com/coolsnowwolf/lede&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;在源码根目录可以看到 &lt;code&gt;feeds.conf.default&lt;/code&gt; 这个文件，打开编辑。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;找到被注释掉的代码。取消注释然后就跟平常编译是一样的。&lt;/p&gt;
