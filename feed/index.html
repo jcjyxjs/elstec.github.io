@@ -1,37 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sun, 07 Jun 2020 12:42:19 +0806</lastBuildDate><pubDate>Sun, 07 Jun 2020 12:42:19 +0806</pubDate><item><title>国内Github下载加速</title><link>/archives/sgclone/</link><description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;你是否也有过这种情况， &lt;code&gt;git clone&lt;/code&gt; 基本没速度，但是无奈不能使用魔法。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1&gt;实现&lt;/h1&gt;
-&lt;p&gt;首先复制你要 &lt;code&gt;clone&lt;/code&gt; 的github仓库地址，就像这样。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;然后打开 &lt;code&gt;码云&lt;/code&gt; ：&lt;a href="https://gitee.com/"&gt;点我&lt;/a&gt; ，登录账号之后，点击右上角的 &lt;code&gt;＋&lt;/code&gt; ，选择 &lt;code&gt;从Github/Gitlab导入仓库&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/3.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;然后一般选择从URL导入，也可以选择其他的，URL导入直接填写刚刚复制的仓库地址，没什么问题就直接导入。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/4.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;导入成功之后，直接 &lt;code&gt;git clone&lt;/code&gt; 码云的地址，国内的 &lt;code&gt;clone&lt;/code&gt; 速度还是飞快的。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/6.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1&gt;其他&lt;/h1&gt;
-&lt;p&gt;上面的只是单纯的 &lt;code&gt;clone&lt;/code&gt; 。如果还要 &lt;code&gt;commit&lt;/code&gt; 的话，需要更改根目录的 &lt;code&gt;.git&lt;/code&gt; 文件夹中的 &lt;code&gt;config&lt;/code&gt; 文件。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/8.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;每clone一个仓库，都会在其根目录带一个 &lt;code&gt;.git&lt;/code&gt; 的文件夹。这是一个隐藏文件夹，需要系统显示隐藏文件夹（方法百度）。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/19/7.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;打开 &lt;code&gt;config&lt;/code&gt; 文件之后，找到URL，改成你要提交的仓库地址就行了。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[core]
-    repositoryformatversion = 0
-    filemode = false
-    bare = false
-    logallrefupdates = true
-    ignorecase = true
-[remote "origin"]
-    url = 这里改成你的仓库URL
-    fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "master"]
-    remote = origin
-    merge = refs/heads/master&lt;/code&gt;&lt;/pre&gt;
-&lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/sgclone/</guid><pubDate>Sun, 15 Mar 2020 12:50:00 +0806</pubDate></item><item><title>Github+jsDelivr全球静态文件加速</title><link>/archives/spasses/</link><description>&lt;h1&gt;更新&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>毫无作为</title><link>/</link><description>Personal blog</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url></url><title>毫无作为</title><link>/</link></image><language>english</language><lastBuildDate>Sat, 13 Jun 2020 13:32:23 +0806</lastBuildDate><pubDate>Sat, 13 Jun 2020 13:32:23 +0806</pubDate><item><title>Github+jsDelivr全球静态文件加速</title><link>/archives/spasses/</link><description>&lt;h1&gt;更新&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;2020年3月30日更新：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如果直接使用分支进行访问，例： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;master&lt;/code&gt; 分支会有缓存，缓存应该是一天更新一次。如果想进行及时更新，可以把 &lt;code&gt;master&lt;/code&gt; 直接改成 &lt;code&gt;latest&lt;/code&gt; 即可。&lt;/p&gt;
@@ -101,6 +69,7 @@
 &lt;/table&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
 </description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/spasses/</guid><pubDate>Tue, 17 Mar 2020 23:50:00 +0806</pubDate></item><item><title>利用Github Actions进行云编译lede固件</title><link>/archives/glede/</link><description>&lt;h1&gt;更新日志&lt;/h1&gt;
+&lt;p&gt;关于编译过程中找不到luci-app-ssr-plus相关问题，解决方法：&lt;a href="https://elstec.cn/luci-app-ssr-plus"&gt;点我&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;重新fork了P3的仓库，需要只用新仓库才可以进行编译，更改默认网关IP需要修改 &lt;code&gt;diy-part2.sh&lt;/code&gt; 而不是 原先的 &lt;code&gt;diy.sh&lt;/code&gt; 。其他均无需变动。&lt;/p&gt;
 &lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;碍于国内的网络环境，本地编译出错概率极高，我本地编译出错好几次，于是便转向了 &lt;code&gt;Github&lt;/code&gt; 云编译（这应该也算一种曲线救国hhhh）。由于 &lt;code&gt;Github&lt;/code&gt; 本身就处在国外，编译出错的几率大大降低。不过 &lt;code&gt;Github Actions&lt;/code&gt; 有免费额度，超出需要额外收费。&lt;/p&gt;
@@ -397,4 +366,26 @@ autoplay="false"&gt;
 &lt;p&gt;效果图：&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/29/2.png!webp" /&gt;&lt;figcaption&gt;主页&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;如果这套暗黑模式有问题的话，希望发现能及时联系我。&lt;/p&gt;
-</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/dark/</guid><pubDate>Wed, 20 May 2020 19:50:00 +0806</pubDate></item></channel></rss>
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/dark/</guid><pubDate>Wed, 20 May 2020 19:50:00 +0806</pubDate></item><item><title>编译OpenWrt固件中找不到luci-app-ssr-plus</title><link>/archives/op-no-luci-app-ssr-plus/</link><description>&lt;h1&gt;我的解决方案（你可以参考但可以不是必须要一样）&lt;/h1&gt;
+&lt;h3&gt;我是云编译，所以是 &lt;code&gt;Fork&lt;/code&gt; 仓库，本地编译的话需要编辑的文件一样。&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Fork&lt;/code&gt; 大雕的 &lt;code&gt;Lede&lt;/code&gt; 仓库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在源码根目录可以看到 &lt;code&gt;feeds.conf.default&lt;/code&gt; 这个文件，打开编辑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;找到被注释掉的代码。取消注释然后就跟平常编译是一样的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;#src-git helloworld https://github.com/fw876/helloworld&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;改完之后如下&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;src-git packages https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;//&lt;span class="n"&gt;github&lt;/span&gt;.&lt;span class="n"&gt;com&lt;/span&gt;/&lt;span class="n"&gt;coolsnowwolf&lt;/span&gt;/&lt;span class="n"&gt;packages&lt;/span&gt;
+&lt;span class="nf"&gt;src-git luci https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;//&lt;span class="n"&gt;github&lt;/span&gt;.&lt;span class="n"&gt;com&lt;/span&gt;/&lt;span class="n"&gt;coolsnowwolf&lt;/span&gt;/&lt;span class="n"&gt;luci&lt;/span&gt;
+&lt;span class="nf"&gt;src-git routing https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;//&lt;span class="n"&gt;git&lt;/span&gt;.&lt;span class="n"&gt;openwrt&lt;/span&gt;.&lt;span class="n"&gt;org&lt;/span&gt;/&lt;span class="n"&gt;feed&lt;/span&gt;/&lt;span class="n"&gt;routing&lt;/span&gt;.&lt;span class="n"&gt;git&lt;/span&gt;;&lt;span class="n"&gt;openwrt&lt;/span&gt;-19.07
+&lt;span class="c"&gt;#src-git telephony https://git.openwrt.org/feed/telephony.git;openwrt-19.07&lt;/span&gt;
+&lt;span class="nf"&gt;src-git helloworld https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;//&lt;span class="n"&gt;github&lt;/span&gt;.&lt;span class="n"&gt;com&lt;/span&gt;/&lt;span class="n"&gt;fw&lt;/span&gt;876/&lt;span class="n"&gt;helloworld&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
+</description><author>i@elstec.cn (jcjyxjs)</author><guid isPermaLink="true">/archives/op-no-luci-app-ssr-plus/</guid><pubDate>Sat, 13 Jun 2020 19:50:00 +0806</pubDate></item></channel></rss>
