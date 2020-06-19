@@ -1,5 +1,74 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="english"><id>/</id><title>毫无作为</title><updated>2020-06-19T16:58:57.253486+08:06</updated><author><name>JCJYXJS</name><email>i@elstec.cn</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>Personal blog</subtitle><entry><id>/archives/glede/</id><title>利用Github Actions进行云编译lede固件</title><updated>2020-06-19T08:58:57.254475+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新日志&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="english"><id>/</id><title>毫无作为</title><updated>2020-06-19T17:28:03.137259+08:06</updated><author><name>JCJYXJS</name><email>i@elstec.cn</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>Personal blog</subtitle><entry><id>/archives/spasses/</id><title>Github+jsDelivr全球静态文件加速</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;2020年3月30日更新：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果直接使用分支进行访问，例： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;master&lt;/code&gt; 分支会有缓存，缓存应该是一天更新一次。如果想进行及时更新，可以把 &lt;code&gt;master&lt;/code&gt; 直接改成 &lt;code&gt;latest&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;p&gt;格式如下： &lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@latest/1.jpg&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;GitHub作为全球最大的代码托管平台，众所周知，GitHub又有GitHub Pages这个功能，使得很多静态网站都托管在GitHub上，国内访问速度一直上不去。但是jsDelivr这家CDN支持加速npm，GitHub和WordPress，jsDelivr在国外是CloudFlare节点，国内都是网速的CDN节点，速度还是飞快的，真正的全球高速。&lt;/p&gt;
+&lt;h1&gt;注意&lt;/h1&gt;
+&lt;p&gt;建议只用作静态文件加速，例如 &lt;code&gt;JS/CSS/Image&lt;/code&gt; 。并不适合大文件分发，大文件分发还是移步国内各厂的对象存储。&lt;/p&gt;
+&lt;h1&gt;实现&lt;/h1&gt;
+&lt;p&gt;首先需要一个GitHub仓库，我就新建一个仓库为例。&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/20/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后我随便上传一张图片并创建一个 &lt;code&gt;releases&lt;/code&gt; 。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;创建 &lt;code&gt;releases&lt;/code&gt; 这步嫌麻烦可以省略，不是必要的。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/20/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;官方的访问方法就是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名或版本号/文件名&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如我在repo根目录下传了一张名为 &lt;code&gt;1.jpg&lt;/code&gt; 的图片，那么文件链接就是&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@1.0/1.jpg&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面说了也可以不创建 &lt;code&gt;releases&lt;/code&gt; ，就直接用分支代替版本号也是可以的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;jsdelivr也可以直接获取仓库目录，格式如下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名或版本号/&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/20/3.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在目录页面选择文件右键复制地址就可以直接拿来用了。&lt;/p&gt;
+&lt;h1&gt;演示&lt;/h1&gt;
+&lt;p&gt;&lt;figure style="flex: 75.0733137829912" &gt;&lt;img width="2048" height="1364" src="https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/1.jpg" /&gt;&lt;figcaption&gt;twitter@iiikawa__&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;图片来源：&lt;a href="https://twitter.com/iiikawa__/status/1150995627003674625"&gt;https://twitter.com/iiikawa__/status/1150995627003674625&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;10M视频下载测速：&lt;a href="https://cdn.jsdelivr.net/gh/jcjyxjs/cdn@master/dl1.mp4"&gt;点我&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;测试结果来自：17ce.com&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/20/4.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/20/5.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;测试结果来自：站长工具&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;线路&lt;/th&gt;
+&lt;th&gt;最快节点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;所有&lt;/td&gt;
+&lt;td&gt;江苏泰州[电信]36ms   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;电信&lt;/td&gt;
+&lt;td&gt;江苏泰州36ms   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;多线&lt;/td&gt;
+&lt;td&gt;北京41ms &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;联通&lt;/td&gt;
+&lt;td&gt;山东济南46ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;移动&lt;/td&gt;
+&lt;td&gt;安徽合肥48ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
+</content><link href="/archives/spasses/" rel="alternate"/><published>2020-03-17T23:50:00+08:06</published></entry><entry><id>/archives/glede/</id><title>利用Github Actions进行云编译lede固件</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;更新日志&lt;/h1&gt;
 &lt;p&gt;关于编译过程中找不到luci-app-ssr-plus相关问题，解决方法：&lt;a href="https://elstec.cn/luci-app-ssr-plus"&gt;点我&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;重新fork了P3的仓库，需要只用新仓库才可以进行编译，更改默认网关IP需要修改 &lt;code&gt;diy-part2.sh&lt;/code&gt; 而不是 原先的 &lt;code&gt;diy.sh&lt;/code&gt; 。其他均无需变动。&lt;/p&gt;
 &lt;h1&gt;我想说的&lt;/h1&gt;
@@ -126,7 +195,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在 &lt;code&gt;Actions&lt;/code&gt; 编译的这个任务中有下载地址。&lt;/p&gt;
 &lt;h1&gt;最后&lt;/h1&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/glede/" rel="alternate"/><published>2020-03-21T23:50:00+08:06</published></entry><entry><id>/archives/qikuai/</id><title>群晖安装ikuai（爱快）软路由</title><updated>2020-06-19T08:58:57.254475+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
+</content><link href="/archives/glede/" rel="alternate"/><published>2020-03-21T23:50:00+08:06</published></entry><entry><id>/archives/qikuai/</id><title>群晖安装ikuai（爱快）软路由</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我想说的&lt;/h1&gt;
 &lt;p&gt;其实和安装lede没什么区别，就是配置上面会有一点区别。&lt;/p&gt;
 &lt;h1&gt;过程&lt;/h1&gt;
 &lt;ol&gt;
@@ -186,7 +255,7 @@ $&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/22/17.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;其他配置自己后续研究，至此可以愉快的上网了。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/qikuai/" rel="alternate"/><published>2020-03-25T23:50:00+08:06</published></entry><entry><id>/archives/20200330/</id><title>解决  git push Permission denied</title><updated>2020-06-19T08:58:57.254475+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
+</content><link href="/archives/qikuai/" rel="alternate"/><published>2020-03-25T23:50:00+08:06</published></entry><entry><id>/archives/20200330/</id><title>解决  git push Permission denied</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;我重装了系统啥都没了hhhh，然后今天提交的时候报错。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push
 git@github.com: Permission denied &lt;span class="o"&gt;(&lt;/span&gt;publickey&lt;span class="o"&gt;)&lt;/span&gt;.
@@ -221,7 +290,7 @@ The key&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;s randomart image is:
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/23/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;点 &lt;code&gt;New SSH key&lt;/code&gt; ，把刚刚 &lt;code&gt;id_rsa.pub&lt;/code&gt; 这个文件的内容粘贴进来，保存即可。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/20200330/" rel="alternate"/><published>2020-03-30T23:50:00+08:06</published></entry><entry><id>/archives/20200403/</id><title>终于开学了[doge]</title><updated>2020-06-19T08:58:57.254475+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div id="aplayer"&gt;
+</content><link href="/archives/20200330/" rel="alternate"/><published>2020-03-30T23:50:00+08:06</published></entry><entry><id>/archives/20200403/</id><title>终于开学了[doge]</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div id="aplayer"&gt;
 &lt;meting-js
 server="netease"
 type="song"
@@ -231,7 +300,7 @@ autoplay="false"&gt;
 &lt;/div&gt;&lt;div&gt;
 我总算可以开学了&lt;img style="display:inline" src="https://cdn.elstec.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A1%A8%E6%83%85%E5%8C%85/doge.png!webp" width="24" height="24"&gt;
 &lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/24/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/20200403/" rel="alternate"/><published>2020-04-03T19:50:00+08:06</published></entry><entry><id>/archives/20200409/</id><title>夸克浏览器真是个好东西[doge]</title><updated>2020-06-19T08:58:57.254475+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div&gt;
+</content><link href="/archives/20200403/" rel="alternate"/><published>2020-04-03T19:50:00+08:06</published></entry><entry><id>/archives/20200409/</id><title>夸克浏览器真是个好东西[doge]</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;div&gt;
 我是真的不想做啊&lt;img style="display:inline" src="https://cdn.elstec.cn/ka/coolapk_emotion_56_dogexiaoku.png!webp" width="24" height="24"&gt;每次都是好几分钟（狗头保命）。
 &lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;不过夸克真的是好东西，直接看图，下载完成图，Ps操作一下就完事了。当然遇到要登陆的可能要统计也只能做了。&lt;/p&gt;
@@ -243,7 +312,7 @@ autoplay="false"&gt;
 &lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/6.png!webp" /&gt;&lt;figcaption&gt;保存&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;div&gt;
 操作完成&lt;img style="display:inline" src="https://cdn.elstec.cn/ka/coolapk_emotion_57_dogehechi.png!webp" width="24" height="24"&gt;
 &lt;/div&gt;&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/25/7.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/20200409/" rel="alternate"/><published>2020-04-09T19:50:00+08:06</published></entry><entry><id>/archives/10-14-5-mac1/</id><title>记一次学校电脑装Mojave10.14.5</title><updated>2020-06-19T08:58:57.253486+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
+</content><link href="/archives/20200409/" rel="alternate"/><published>2020-04-09T19:50:00+08:06</published></entry><entry><id>/archives/10-14-5-mac1/</id><title>记一次学校电脑装Mojave10.14.5</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;学校电脑是政府统一采购的品牌机，本来抱着试一试的想法装，结果直接就成功引导进安装了。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/27/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;具体型号是： &lt;code&gt;HP ProDesk 480 G4 MT Business PC&lt;/code&gt;&lt;/p&gt;
@@ -277,7 +346,7 @@ autoplay="false"&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/27/16.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;结束之后，基本能用。但我这品牌机声卡是科胜讯的，网上找不到相关驱动，我也不会做，就买了一个 &lt;code&gt;usb&lt;/code&gt; 声卡驱动凑合着用[doge]。&lt;/p&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/10-14-5-mac1/" rel="alternate"/><published>2020-05-15T19:50:00+08:06</published></entry><entry><id>/archives/free-gtav/</id><title>Epic本周免费领GTA5</title><updated>2020-06-19T08:58:57.253486+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;p&gt;如图，本周Epic商城免费送GTA5，而且是一经入库永久拥有，并不是限免几天，而且还是豪华版，自带新手包。直到5月21号前都可以免费领。&lt;/p&gt;
+</content><link href="/archives/10-14-5-mac1/" rel="alternate"/><published>2020-05-15T19:50:00+08:06</published></entry><entry><id>/archives/free-gtav/</id><title>Epic本周免费领GTA5</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;p&gt;如图，本周Epic商城免费送GTA5，而且是一经入库永久拥有，并不是限免几天，而且还是豪华版，自带新手包。直到5月21号前都可以免费领。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;新手包具体内容官网有介绍。&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/2.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -285,7 +354,7 @@ autoplay="false"&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/3.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;现在谁还敢说自己没有GTA5了？（滑稽）&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/28/4.jpg!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/free-gtav/" rel="alternate"/><published>2020-05-17T19:50:00+08:06</published></entry><entry><id>/archives/dark/</id><title>近期对网站页面进行了改版</title><updated>2020-06-19T08:58:57.253486+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;p&gt;其实很早就想做一个暗黑模式自适应了，一直没做是因为太菜了实在不会，但最近晚上关灯看自己的站实在是瞎眼睛（哭）。&lt;/p&gt;
+</content><link href="/archives/free-gtav/" rel="alternate"/><published>2020-05-17T19:50:00+08:06</published></entry><entry><id>/archives/dark/</id><title>近期对网站页面进行了改版</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;p&gt;其实很早就想做一个暗黑模式自适应了，一直没做是因为太菜了实在不会，但最近晚上关灯看自己的站实在是瞎眼睛（哭）。&lt;/p&gt;
 &lt;p&gt;其实有很多种方法，原始的方法是准备两套 &lt;code&gt;css&lt;/code&gt; ，使用 &lt;code&gt;js&lt;/code&gt; 进行替换。&lt;/p&gt;
 &lt;p&gt;我使用的就是另外一种比较新的方法。使用媒体查询，检测到用户是深色模式时，自动进行切换。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;media&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;prefers-color-scheme&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;dark&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -297,7 +366,7 @@ autoplay="false"&gt;
 &lt;p&gt;效果图：&lt;/p&gt;
 &lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/29/2.png!webp" /&gt;&lt;figcaption&gt;主页&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;如果这套暗黑模式有问题的话，希望发现能及时联系我。&lt;/p&gt;
-</content><link href="/archives/dark/" rel="alternate"/><published>2020-05-20T19:50:00+08:06</published></entry><entry><id>/archives/op-no-luci-app-ssr-plus/</id><title>编译OpenWrt固件中找不到luci-app-ssr-plus</title><updated>2020-06-19T08:58:57.253486+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我的解决方案&lt;/h1&gt;
+</content><link href="/archives/dark/" rel="alternate"/><published>2020-05-20T19:50:00+08:06</published></entry><entry><id>/archives/op-no-luci-app-ssr-plus/</id><title>编译OpenWrt固件中找不到luci-app-ssr-plus</title><updated>2020-06-19T09:28:03.137259+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;h1&gt;我的解决方案&lt;/h1&gt;
 &lt;h3&gt;我是云编译，所以是 &lt;code&gt;Fork&lt;/code&gt; 仓库，本地编译的话需要编辑的文件一样。&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;Fork&lt;/code&gt; 大雕的 &lt;code&gt;Lede&lt;/code&gt; 仓库。&lt;/li&gt;
@@ -322,8 +391,4 @@ autoplay="false"&gt;
 &lt;span class="nf"&gt;src-git helloworld https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;//&lt;span class="n"&gt;github&lt;/span&gt;.&lt;span class="n"&gt;com&lt;/span&gt;/&lt;span class="n"&gt;fw&lt;/span&gt;876/&lt;span class="n"&gt;helloworld&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;看完了全文为什么不评论一下呢？xd&lt;/h4&gt;
-</content><link href="/archives/op-no-luci-app-ssr-plus/" rel="alternate"/><published>2020-06-13T19:50:00+08:06</published></entry><entry><id>/archives/allinSSL-free-ssl/</id><title>allinSSL免费SSL证书</title><updated>2020-06-19T08:58:57.253486+00:00</updated><author><name>jcjyxjs</name><email>i@elstec.cn</email><uri>https://elstec.cn</uri></author><content>&lt;p&gt;年中大促已到最火热阶段！allinSSL现推出活动：使用您博客分享allinSSL免费SSL证书，即可获得价值￥1000.00的CRAZYSSL Wildcard Certificate一年。&lt;/p&gt;
-&lt;p&gt;参与方式：分享文章发布后，将您的博客链接与allinSSL注册邮箱回复本邮件，并添加客服QQ1159016159，即可获得。&lt;/p&gt;
-&lt;p&gt;反正免费的不要白不要。&lt;/p&gt;
-&lt;p&gt;&lt;figure  size-undefined&gt;&lt;img width="-1" height="-1" src="https://cdn.elstec.cn/30/1.png!webp" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/allinSSL-free-ssl/" rel="alternate"/><published>2020-06-19T19:50:00+08:06</published></entry></feed>
+</content><link href="/archives/op-no-luci-app-ssr-plus/" rel="alternate"/><published>2020-06-13T19:50:00+08:06</published></entry></feed>
